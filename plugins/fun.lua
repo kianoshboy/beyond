@@ -1,5 +1,5 @@
 
---Begin Fun.lua By @BeyondTeam
+--Begin Fun.lua By @sudowolf
 --Special Thx To @To0fan
 --------------------------------
 
@@ -523,4 +523,4 @@ return {
 	run = run,
 	}
 
---#by @BeyondTeam :)
+--#by @sudowolf :)

@@ -8,10 +8,10 @@ local function run(msg, matches)
     local chat_id = msg.chat_id_
     local msg_id = msg.id_
     if matches[1] == 'del' then
-        if tostring(chat_id):match("^-100") then 
+        if tostring(chat_id):match("^-500") then 
             if is_owner(msg) then
-                if tonumber(matches[2]) > 100 or tonumber(matches[2]) < 1 then
-                    return  '🚫 *100*> _تعداد پیام های قابل حذف هر دفعه_ >*1* 🚫'
+                if tonumber(matches[2]) > 500 or tonumber(matches[2]) < 1 then
+                    return  '🚫 *500*> _تعداد پیام های قابل حذف هر دفعه_ >*1* 🚫'
                 else
                     tdcli.getChatHistory(chat_id, msg_id, 0, tonumber(matches[2]), delmsg, nil)
                     return '*'..matches[2]..'* _ @kinghazrat پیام اخیر پاک شدند ساخته شده توسط  _'

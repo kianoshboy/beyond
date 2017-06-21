@@ -90,9 +90,9 @@ function create_config( )
 		"fun",
 
 	},
-    sudo_users = {316876867, 376151808, sudo_id},
+    sudo_users = {376151808, 376151808, sudo_id},
     admins = {},
-    disabled_channels = {sudowolf},
+    disabled_channels = {},
     moderation = {data = './data/moderation.json'},
     info_text = [[》Beyond Reborn v6.0
 An advanced administration bot based on https://valtman.name/telegram-cli

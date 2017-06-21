@@ -9,7 +9,7 @@ end
 local function run(msg, matches)
 	if #matches < 2 then
 		return "
-		ساخته شده توسط @kinghazrat بعد از این دستور، با قید یک فاصله کلمه یا جمله ی مورد نظر را جهت زیبا نویسی وارد کنید"
+		ساخته شده توسط @sudo_wolf بعد از این دستور، با قید یک فاصله کلمه یا جمله ی مورد نظر را جهت زیبا نویسی وارد کنید"
 	end
 	if string.len(matches[2]) > 20 then
 		 tdcli.sendMessage(msg.chat_id_, 0, 1, "حداکثر حروف مجاز 20 کاراکتر انگلیسی و عدد است", 1, 'html')
