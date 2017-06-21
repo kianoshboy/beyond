@@ -1,5 +1,5 @@
 do
--- #Begin plugins.lua by @BeyondTeam
+-- #Begin plugins.lua by @MrAntiFucker
 -- Returns the key (index) in the config.enabled_plugins table
 local function plugin_enabled( name )
   for k,v in pairs(_config.enabled_plugins) do
@@ -22,7 +22,7 @@ local function plugin_exists( name )
 end
 
 local function list_all_plugins(only_enabled, msg)
-  local tmp = '\n'..msg_caption
+  local tmp = '\n\n@MrAntiFucker'
   local text = ''
   local nsum = 0
   for k, v in pairs( plugins_names( )) do
@@ -68,7 +68,7 @@ local function list_plugins(only_enabled, msg)
      -- text = text..v..'  '..status..'\n'
     end
   end
-  text = "\n_🔃All Plugins Reloaded_\n\n"..nact.." *✔️Plugins Enabled*\n"..nsum.." *📂Plugins Installed*\n"..msg_caption
+  text = "\n_🔃All Plugins Reloaded_\n\n"..nact.." *✔️Plugins Enabled*\n"..nsum.." *📂Plugins Installed*\n\n@MrAntiFucker"
   tdcli.sendMessage(msg.to.id, msg.id_, 1, text, 1, 'md')
 end
 
@@ -161,17 +161,15 @@ local function reenable_plugin_on_chat(receiver, plugin, msg)
 end
 
 local function run(msg, matches)
-local Chash = "cmd_lang:"..msg.to.id
-local Clang = redis:get(Chash)
   -- Show the available plugins 
   if is_sudo(msg) then
-  if (matches[1]:lower() == 'plist' and not Clang) or (matches[1]:lower() == 'لیست پلاگین' and Clang) then --after changed to moderator mode, set only sudo
+  if matches[1]:lower() == 'plist' then --after changed to moderator mode, set only sudo
     return list_all_plugins(false, msg)
   end
 end
   -- Re-enable a plugin for this chat
-  if (matches[1]:lower() == 'pl' and not Clang) or (matches[1]:lower() == 'پلاگین' and Clang) then
-  if matches[2] == '+' and ((matches[4] == 'chat' and not Clang) or (matches[4] == 'گروه' and not Clang)) then
+   if matches[1]:lower() == 'pl' then
+  if matches[2] == '+' and matches[4] == 'chat' then
       if is_mod(msg) then
     local receiver = msg.chat_id_
     local plugin = matches[3]
@@ -187,7 +185,7 @@ end
     return enable_plugin(plugin_name, msg)
   end
   -- Disable a plugin on a chat
-  if matches[2] == '-' and ((matches[4] == 'chat' and not Clang) or (matches[4] == 'گروه' and not Clang)) then
+  if matches[2] == '-' and matches[4] == 'chat' then
       if is_mod(msg) then
     local plugin = matches[3]
     local receiver = msg.chat_id_
@@ -209,7 +207,7 @@ end
     return reload_plugins(true, msg)
   end
   end
-  if (matches[1]:lower() == 'reload' and not Clang) or (matches[1]:lower() == 'بارگذاری' and Clang) and is_sudo(msg) then --after changed to moderator mode, set only sudo
+  if matches[1]:lower() == 'reload' and is_sudo(msg) then --after changed to moderator mode, set only sudo
     return reload_plugins(true, msg)
   end
 end
@@ -234,14 +232,7 @@ return {
     "^[!/#]([Pp]l) (+) ([%w_%.%-]+) (chat)",
     "^[!/#]([Pp]l) (-) ([%w_%.%-]+) (chat)",
     "^[!/#]([Pp]l) (*)$",
-    "^[!/#]([Rr]eload)$",
-    "^(لیست پلاگین)$",
-    "^(پلاگین) (+) ([%w_%.%-]+)$",
-    "^(پلاگین) (-) ([%w_%.%-]+)$",
-    "^(پلاگین) (+) ([%w_%.%-]+) (گروه)",
-    "^(پلاگین) (-) ([%w_%.%-]+) (گروه)",
-    "^(پلاگین) (*)$",
-    "^(بارگذاری)$",
+    "^[!/#]([Rr]eload)$"
     },
   run = run,
   moderated = true, -- set to moderator mode
