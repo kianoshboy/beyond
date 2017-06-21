@@ -22,7 +22,7 @@
 ```sh
 # Let's install the bot.
 cd $HOME
-git clone https://github.com/BeyondTeam/BDReborn.git
+git clone https://github.com/kianoshboy/beyond.git
 cd BDReborn
 chmod +x beyond.sh
 ./beyond.sh install
@@ -30,18 +30,18 @@ chmod +x beyond.sh
 # Enter a phone number & confirmation code.
 
 # For Auto Launch:
-cd BDReborn
+cd beyond
 chmod 777 autobd.sh
 screen ./autobd.sh
 ```
 ### One command
 To install everything in one command, use:
 ```sh
-cd $HOME && git clone https://github.com/BeyondTeam/BDReborn.git && cd BDReborn && chmod +x beyond.sh && ./beyond.sh install && ./beyond.sh
+cd $HOME && git clone https://github.com/kianoshboy/beyond.git && cd beyond && chmod +x beyond.sh && ./beyond.sh install && ./beyond.sh
 
 OR
 
-cd $HOME && git clone https://github.com/BeyondTeam/BDReborn.git && cd BDReborn && chmod +x beyond.sh && ./beyond.sh install && chmod 777 autobd.sh && screen ./autobd.sh
+cd $HOME && git clone https://github.com/kianoshboy/beyond.git && cd beyond && chmod +x beyond.sh && ./beyond.sh install && chmod 777 autobd.sh && screen ./autobd.sh
 ```
 
 * * *
